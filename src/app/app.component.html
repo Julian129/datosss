@@ -1,13 +1,40 @@
-<input type="text" [(ngModel)]="studentName" placeholder="Name"><br>
-<input type="text" [(ngModel)]="studentAge" placeholder="Age"><br>
-<input type="text" [(ngModel)]="studentAddress" placeholder="Address"><br>
-<button type="button" (click)="createRecord()">Guardar</button><br>
-<div *ngFor="let item of students">
-    <h3>
-        {{item.Data.Name}}
-    </h3>
-    Id: {{item.id}} <br>
-    Edad:{{item.Data.Age}} <br>
-    Direccion: {{item.Data.Adress}}
-    <button type="button" (click)="removeRecord(item.id)">Eliminar</button>
-</div>
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Formulario de Estudiantes</h2>
+  
+        <form>
+            <div class="mb-3">
+                <label for="studentName" class="form-label">Nombre:</label>
+                <input type="text" [(ngModel)]="studentName" name="studentName" class="form-control" id="typeahead-basic" placeholder="Name">
+              </div>
+              <div class="mb-3">
+                <label for="studentAge" class="form-label">Edad:</label>
+                <input type="text" [(ngModel)]="studentAge" name="studentAge" class="form-control" id="studentAge" placeholder="Age">
+              </div>
+              <div class="mb-3">
+                <label for="studentAddress" class="form-label">Dirección:</label>
+                <input type="text" [(ngModel)]="studentAddress" name="studentAddress" class="form-control" id="studentAddress" placeholder="Address">
+              </div>
+  
+          <button type="button" (click)="createRecord()" class="btn btn-primary">Guardar</button>
+          <button type="button" (click)="refreshForm()" class="btn btn-secondary">Refrescar</button>
+
+        </form>
+      </div>
+  
+      <div class="col-md-8">
+        <h2>Lista de Estudiantes</h2>
+  
+        <div *ngFor="let item of students" class="mb-3 border p-3">
+          <h3>{{ item.Data.Name }}</h3>
+          <p>Id: {{ item.id }}</p>
+          <p>Edad: {{ item.Data.Age }}</p>
+          <p>Dirección: {{ item.Data.Adress }}</p>
+          <button type="button" (click)="loadStudentData(item.id)" class="btn btn-info">Editar</button>          
+          <button type="button" (click)="removeRecord(item.id)" class="btn btn-danger">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

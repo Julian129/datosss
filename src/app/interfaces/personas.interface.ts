@@ -1,5 +1,5 @@
 export interface Personas {
-    id:number,
+    id?:string,
     nombre:string,
     direccion:string,
     edad:string,
