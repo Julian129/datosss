@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from './service/crud.service';
-import { Personas } from './interfaces/personas.interface';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -48,6 +46,7 @@ export class AppComponent {
       this.crudService.update_Student(this.selectedStudentId, record)
         .then(() => {
           this.clearForm();
+          alert('Actualizado con exito');
         })
         .catch((error) => {
           console.log(error);
@@ -60,6 +59,7 @@ export class AppComponent {
       };
       this.crudService.create_newStudent(record).then((resp: any) => {
         this.clearForm();
+        alert('Exito al Guardar');
       }).catch((error: any) => {
         console.log(error);
       });
