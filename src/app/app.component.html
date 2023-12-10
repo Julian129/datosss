@@ -10,7 +10,7 @@
               </div>
               <div class="mb-3">
                 <label for="studentAge" class="form-label">Edad:</label>
-                <input type="text" [(ngModel)]="studentAge" name="studentAge" class="form-control" id="studentAge" placeholder="Age">
+                <input type="number" min="1" max="120" pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9]/g, '')" [(ngModel)]="studentAge" name="studentAge" class="form-control" id="studentAge" placeholder="Age">
               </div>
               <div class="mb-3">
                 <label for="studentAddress" class="form-label">Dirección:</label>
